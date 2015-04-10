@@ -1,0 +1,39 @@
+php7 Nightly Builds
+================================
+
+Build your own php7 Nightly Builds Docker container based on an Ubuntu Trusty every day.
+
+To build run either:
+```
+docker build -t zend/php:7.0 .
+```
+from within the cloned directory (please note the trailing dot).
+
+Or: make build.sh executable and run it.
+
+After a successful build, a container can be ran by the following command:
+```
+docker run -d -P zend/php:7.0
+```
+If you have built the container with the build.sh script, please note, that a date string has been attached to the version number. Please call 'docker ps' to see the full name of the created container).
+
+The command above exposes port 80 of the container, so that a request to http://<IP_ADRESS> will be responded by the Apache 
+
+You can check the IP adress and the Apache logs by calling
+```
+docker logs -f <CONTAINER_ID>
+```
+
+PHP application
+---
+The Apache is configured to serve files located in directory /www/public . By default an index.php and a phpinfo.php has been placed into /www/public resp. /www .
+
+If you want to build the container with your own application sources, please copy the files to the ./www directory on the host system or modify the Dockerfile accordingly.
+
+You get more flexibility by mounting a directory from the host system to the container durin runtime. See the following example:
+```
+docker run -d -v /home/jan/workspaces/zf2-helloworld:/www zend/php:7.0
+```
+This command will start a container with a ZF2-Helloworld application - located on the host system in /home/jan/workspaces/zf2-helloworld. The files have been mounted in the container to the /www directory.
+
+Thanks to this, you can now modify the application code with your preferred IDE on the host system and you see the effect immediately in the Docker container.

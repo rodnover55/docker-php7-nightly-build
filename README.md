@@ -37,3 +37,7 @@ docker run -d -v /home/jan/workspaces/zf2-helloworld:/www zend/php:7.0
 This command will start a container with a ZF2-Helloworld application - located on the host system in /home/jan/workspaces/zf2-helloworld. The files have been mounted in the container to the /www directory.
 
 Thanks to this, you can now modify the application code with your preferred IDE on the host system and you see the effect immediately in the Docker container.
+
+Troubleshooting
+---
+If you encouter some issues with downloading files from archive.ubuntu.com during the built, please check the file /etc/default/docker and make sure that the directive DOCKER_OPTS is not commented. Obviously Docker has some problems in DNS resultion in specific versions. In DOCKER_OPTS one can specify multiple dns servers which are then used during the build. Please make sure that the docker service is being restarted so that changes can take effect.

@@ -9,7 +9,7 @@ ADD run.sh /run.sh
 ADD vhost.php7.conf /etc/apache2/sites-available/php7.conf
 
 RUN chmod 775 /*.sh
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y wget apache2 libcurl4-openssl-dev libmcrypt-dev libxml2-dev libjpeg-dev libfreetype6-dev libmysqlclient-dev libt1-dev libgmp-dev libpspell-dev libicu-dev librecode-dev 
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y wget apache2 libcurl4-openssl-dev libmcrypt-dev libxml2-dev libjpeg-dev libjpeg62 libfreetype6-dev libmysqlclient-dev libt1-dev libgmp-dev libpspell-dev libicu-dev librecode-dev 
 RUN PHP7_DEB_ARCHIVE="http://repos.zend.com/zend-server/early-access/php7/php-7.0-latest-DEB-x86_64.tar.gz" && wget -P /tmp $PHP7_DEB_ARCHIVE && tar xzPf /tmp/php-7*.tar.gz
 
 RUN cp /usr/local/php7/libphp7.so /usr/lib/apache2/modules/

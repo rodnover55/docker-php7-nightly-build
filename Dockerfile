@@ -7,6 +7,7 @@ MAINTAINER Jan Burkl <jan@zend.com>
 
 ADD run.sh /run.sh
 ADD vhost.php7.conf /etc/apache2/sites-available/php7.conf
+ENV PATH /usr/local/php7/bin:$PATH
 
 RUN chmod 775 /*.sh
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y wget apache2 libcurl4-openssl-dev libmcrypt-dev libxml2-dev libjpeg-dev libjpeg62 libfreetype6-dev libmysqlclient-dev libt1-dev libgmp-dev libpspell-dev libicu-dev librecode-dev 

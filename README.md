@@ -38,6 +38,34 @@ This command will start a container with a ZF2-Helloworld application - located 
 
 Thanks to this, you can now modify the application code with your preferred IDE on the host system and you see the effect immediately in the Docker container.
 
+Running PHP CLI
+---
+To use the CLI, just launch the container with a shell, e.g. `/bin/bash` using
+the interactive (`-i`) and allocate a psuedo-TTY (`-t`):
+
+```
+docker run -it zend/php:7.0 /bin/bash
+```
+
+At this point you will be a bash prompt inside the container:
+
+```
+root@25fbe3b15212:/# php -v
+PHP 7.0.0-dev (cli) (built: Jul  9 2015 19:10:39)
+Copyright (c) 1997-2015 The PHP Group
+Zend Engine v3.0.0-dev, Copyright (c) 1998-2015 Zend Technologies
+root@25fbe3b15212:/#
+```
+
+To share code, you can use a volume, or `-v`:
+
+```
+docker run -it zend/php:7.0 -v /destination /host/path /bin/bash
+```
+
+This will mount the path `/host/path` from the host, to `/destination` inside
+the container.
+
 Troubleshooting
 ---
 If you encouter some issues with downloading files from archive.ubuntu.com during the built, please check the file /etc/default/docker and make sure that the directive DOCKER_OPTS is not commented. Obviously Docker has some problems in DNS resultion in specific versions. In DOCKER_OPTS one can specify multiple dns servers which are then used during the build. Please make sure that the docker service is being restarted so that changes can take effect.

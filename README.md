@@ -60,7 +60,7 @@ root@25fbe3b15212:/#
 To share code, you can use a volume, or `-v`:
 
 ```
-docker run -it zend/php:7.0 -v /destination /host/path /bin/bash
+docker run -it -v /destination:/host/path zend/php:7.0 /bin/bash
 ```
 
 This will mount the path `/host/path` from the host, to `/destination` inside

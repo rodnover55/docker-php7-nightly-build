@@ -17,7 +17,7 @@ docker run -d -P zend/php:7.0
 ```
 If you have built the container with the build.sh script, please note, that a date string has been attached to the version number. Please call 'docker images' to see the full name of the created container image).
 
-The command above exposes port 80 of the container, so that a request to http://<IP_ADRESS> will be responded by the Apache 
+The command above exposes port 80 of the container, so that a request to http://IP_ADRESS will be responded by the Apache 
 
 You can check the IP adress and the Apache logs by calling
 ```

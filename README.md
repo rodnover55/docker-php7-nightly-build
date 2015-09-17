@@ -15,7 +15,7 @@ After a successful build, a container can be ran by the following command:
 ```
 docker run -d -P zend/php:7.0
 ```
-If you have built the container with the build.sh script, please note, that a date string has been attached to the version number. Please call 'docker ps' to see the full name of the created container).
+If you have built the container with the build.sh script, please note, that a date string has been attached to the version number. Please call 'docker images' to see the full name of the created container image).
 
 The command above exposes port 80 of the container, so that a request to http://<IP_ADRESS> will be responded by the Apache 
 

@@ -66,6 +66,12 @@ docker run -it -v /destination:/host/path zend/php:7.0 /bin/bash
 This will mount the path `/host/path` from the host, to `/destination` inside
 the container.
 
+Docker Hub
+----------
+This image is also available in the Docker Hub:
+https://hub.docker.com/r/janatzend/docker-php7-nightly-build/
+It is updated every day at 5am CET.
+
 Troubleshooting
 ---
 If you encouter some issues with downloading files from archive.ubuntu.com during the built, please check the file /etc/default/docker and make sure that the directive DOCKER_OPTS is not commented. Obviously Docker has some problems in DNS resultion in specific versions. In DOCKER_OPTS one can specify multiple dns servers which are then used during the build. Please make sure that the docker service is being restarted so that changes can take effect.

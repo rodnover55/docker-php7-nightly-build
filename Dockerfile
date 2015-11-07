@@ -20,6 +20,8 @@ RUN echo "\n<FilesMatch \\.php$>\nSetHandler application/x-httpd-php\n</FilesMat
 RUN a2dismod mpm_event && a2enmod mpm_prefork && a2enmod php7 && a2enmod rewrite
 RUN a2dissite 000-default && a2ensite php7
 
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer
+
 ADD www /www
 RUN mkdir -p /www/public
 
